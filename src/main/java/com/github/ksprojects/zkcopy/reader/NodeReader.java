@@ -32,12 +32,13 @@ final class NodeReader implements Runnable {
 
     @Override
     public void run() {
+        private ZooKeeper zk = null;
         try {
             if (failed.get()) {
                 return;
             }
             ReaderThread thread = (ReaderThread) Thread.currentThread();
-            ZooKeeper zk = thread.getZooKeeper();
+            zk = thread.getZooKeeper();
             Stat stat = new Stat();
             String path = znode.getAbsolutePath();
             LOGGER.debug("Reading node " + path);
