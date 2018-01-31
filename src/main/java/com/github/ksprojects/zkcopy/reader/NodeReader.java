@@ -61,6 +61,9 @@ final class NodeReader implements Runnable {
             failed.set(true);
         } finally {
             processedCounter.incrementAndGet();
+            if (zk != null) {
+                zk.close();
+            }
         }
     }
 

@@ -72,7 +72,7 @@ public class Writer implements Watcher {
         } catch (IOException | KeeperException | InterruptedException e) {
             logger.error("Exception caught while writing nodes", e);
         } finally {
-            if(zk != null){
+            if (zk != null) {
                 zk.close()
             }
         }
